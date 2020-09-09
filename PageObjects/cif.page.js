@@ -76,6 +76,7 @@ var LoginPage = Object.create(Page,{
         browser.pause(1000);
         $('span=Building').click();
         elem.contractOption.waitForDisplayed({ timeout: 270000 });
+        Page.scrollUP(elem.contractOption)
         elem.contractOption.click()
         browser.pause(1000);
         $('span=Simplot Australia').click();
@@ -123,6 +124,7 @@ var LoginPage = Object.create(Page,{
             browser.pause(1000);
         }
         browser.pause(1000)
+        Page.scrollUP(elem.secondNextBtn)
         elem.secondNextBtn.click();
         browser.pause(2000)
         elem.savebtn.click()
@@ -434,6 +436,7 @@ var LoginPage = Object.create(Page,{
         elem.deletePurchaseOrder.waitForDisplayed({ timeout: 270000 });
         assert.strictEqual($(`[class="mat-card-title"]`).getText(), `Purchase Order `+purchaseOrderNum);
         browser.pause(1000);
+        Page.scrollUP(elem.deletePurchaseOrder)
         elem.deletePurchaseOrder.click()
         browser.pause(2000);
         assert.strictEqual(browser.isAlertOpen(), true);
