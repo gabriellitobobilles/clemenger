@@ -336,6 +336,7 @@ var LoginPage = Object.create(Page,{
         assert.strictEqual($(`[class="mat-card-title"]`).getText(), `Purchase Order `+purchaseOrderNum);
         browser.pause(1000);
         let statusOrder = elem.purchaseOrderStatus.getText();
+        Page.scrollUP(elem.updateOrderBtn)
         elem.updateOrderBtn.click()
         browser.pause(1000);
         elem.orderStatusOption.waitForDisplayed({ timeout: 270000 });
@@ -360,6 +361,7 @@ var LoginPage = Object.create(Page,{
         elem.cancelPurchaseOrder.waitForDisplayed({ timeout: 270000 });
         assert.strictEqual($(`[class="mat-card-title"]`).getText(), `Purchase Order `+purchaseOrderNum);
         browser.pause(1000);
+        Page.scrollUP(elem.cancelPurchaseOrder)
         elem.cancelPurchaseOrder.click()
         browser.pause(2000);
         assert.strictEqual(browser.isAlertOpen(), true);
@@ -378,6 +380,7 @@ var LoginPage = Object.create(Page,{
         elem.cancelPurchaseOrder.waitForDisplayed({ timeout: 270000 });
         assert.strictEqual($(`[class="mat-card-title"]`).getText(), `Purchase Order `+purchaseOrderNum);
         browser.pause(1000);
+        Page.scrollUP(elem.confirmedPurchaseOrder)
         elem.confirmedPurchaseOrder.click()
         browser.pause(2000);
         assert.strictEqual(browser.isAlertOpen(), true);
@@ -396,6 +399,7 @@ var LoginPage = Object.create(Page,{
         elem.qaRequired.waitForDisplayed({ timeout: 270000 });
         assert.strictEqual($(`[class="mat-card-title"]`).getText(), `Purchase Order `+purchaseOrderNum);
         browser.pause(1000);
+        Page.scrollUP(elem.qaRequired)
         elem.qaRequired.click()
         browser.pause(2000);
         assert.strictEqual(elem.qaComplete.isExisting(), true)     
@@ -415,6 +419,7 @@ var LoginPage = Object.create(Page,{
         elem.markAsUrgentBtn.waitForDisplayed({ timeout: 270000 });
         assert.strictEqual($(`[class="mat-card-title"]`).getText(), `Purchase Order `+purchaseOrderNum);
         browser.pause(1000);
+        Page.scrollUP(elem.markAsUrgentBtn)
         elem.markAsUrgentBtn.click()
         browser.pause(2000);
         assert.strictEqual(elem.standardPriorityOrder.isExisting(), true)  
